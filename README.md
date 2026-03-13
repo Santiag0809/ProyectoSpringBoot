@@ -102,6 +102,8 @@ springdoc.swagger-ui.path=/swagger-ui.html
 
 Estructura del proyecto
 src/main/java/com/s1/logitrack/
+src/main/java/com/s1/logitrack/
+```
 │
 ├── auth/
 │   ├── AuthController.java
@@ -119,6 +121,7 @@ src/main/java/com/s1/logitrack/
 │   ├── BodegaController.java
 │   ├── MovimientoController.java
 │   ├── MovimientoDetalleController.java
+│   ├── PersonaController.java
 │   └── ProductoController.java
 │
 ├── dto/
@@ -182,6 +185,7 @@ src/main/java/com/s1/logitrack/
         ├── MovimientoServiceImpl.java
         ├── PersonaServiceImpl.java
         └── ProductoServiceImpl.java
+```
 
 Autenticación
 Uso de JWT (JSON Web Token). Para acceder a los endpoints protegido
