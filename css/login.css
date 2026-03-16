@@ -1,8 +1,23 @@
+:root{
+    --fondo:#0f0f13;
+    --card:#1c1c22;
+    --input:#2a2a31;
+    --borde:#3a3a42;
+
+    --texto:#f4f4f5;
+    --texto-sec:#9ca3af;
+
+    --morado:#8b5cf6;
+    --morado-hover:#a78bfa;
+}
+
 body {
+    margin: 0;              
     display: flex;
-    align-items: center;
+    align-items: center;    
     justify-content: center;
     min-height: 100vh;
+    background: var(--fondo);
 }
 
 .imagen {
@@ -15,14 +30,14 @@ body {
 }
 
 .login {
-    background-color: #1c1c1e;
+    background-color: var(--card);
     border-radius: 60px;
     width: 90%;
     max-width: 700px;
     padding: 3rem 4rem;
     text-align: center;
     animation: aparecer 1.5s 1;
-    color: rgb(110, 0, 133);
+    color: var(--texto);
 }
 
 .login img {
@@ -35,13 +50,14 @@ body {
     font-size: 1.8rem;
     font-weight: normal;
     margin-bottom: 0.5rem;
+    color: var(--morado);
 }
 
 .subtitulito {
     font-family: "negrito", sans-serif;
     font-size: 0.95rem;
-    margin-bottom: 2rem;
-    color: var(--gris);
+    margin-top: 1.2rem;   
+    color: var(--texto-sec);
 }
 
 form {
@@ -55,25 +71,28 @@ form {
 form label {
     font-size: 0.9rem;
     margin-left: 0.3rem;
+    color: var(--morado);
 }
 
 .login input {
     height: 2.5rem;
     padding: 0 1rem;
-    border: 1px solid #000000;
+    border: 1px solid var(--borde);
     border-radius: 12px;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.3s ease;
+    background: var(--input);
+    color: var(--texto);
 }
 
 .login input:focus {
-    border-color: var(--naranja);
+    border-color: var(--morado);
 }
 
 .boton {
-    background-color: var(--naranja);
-    color: rgb(0, 0, 0);
+    background-color: var(--morado);
+    color: white;
     border: none;
     border-radius: 25px;
     font-size: 1rem;
@@ -88,11 +107,11 @@ form label {
 }
 
 .boton:hover {
-    background-color: var(--naranja-dark);
+    background-color: var(--morado-hover);
 }
 
 .error {
-    color: red;
+    color: #ef4444;
     font-size: 0.85rem;
     text-align: center;
     margin-top: 0.5rem;

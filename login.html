@@ -9,10 +9,6 @@
 </head>
 <body>
 
-    <div class="imagen">
-        <img src="src/LogiTrack.png" alt="LogiTrack" width="120">
-    </div>
-
     <div class="login">
         <img src="src/LogiTrack.png" alt="LogiTrack">
 
@@ -32,49 +28,6 @@
         <p class="error" id="error">Credenciales incorrectas. Intenta de nuevo.</p>
 
         <p class="subtitulito">¿Tienes problemas para ingresar? Contacta al administrador.</p>
-    </div>
-
-    <script>
-        const BASE_URL = 'http://localhost:8080';
-
-        document.getElementById('password').addEventListener('keydown', e => {
-            if (e.key === 'Enter') login();
-        });
-
-        async function login() {
-            const email    = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const error    = document.getElementById('error');
-
-            error.style.display = 'none';
-
-            if (!email || !password) {
-                error.textContent   = 'Por favor completa todos los campos.';
-                error.style.display = 'block';
-                return;
-            }
-
-            try {
-                const res = await fetch(`${BASE_URL}/auth/login`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
-                });
-
-                if (!res.ok) throw new Error('Credenciales inválidas');
-
-                const data = await res.json();
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('email', email);
-
-                window.location.href = 'welcome.html';
-
-            } catch (err) {
-                error.textContent   = 'Credenciales incorrectas. Intenta de nuevo.';
-                error.style.display = 'block';
-            }
-        }
-    </script>
-
+    </div>    
 </body>
 </html>
