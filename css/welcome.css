@@ -1,27 +1,34 @@
-.imagen {
-    text-align: center;
-    margin-top: 40vh;
-    opacity: 0;
-    position: relative;
-    animation: desaparecer 2s 1;
-    animation-delay: 0s;
+:root {
+    --fondo: #0f0f13;
+    --card: #1c1c22;
+    --input: #2a2a31;
+    --borde: #3a3a42;
+
+    --texto: #f4f4f5;
+    --texto-sec: #9ca3af;
+
+    --morado: #8b5cf6;
+    --morado-hover: #a78bfa;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--fondo);
 }
 
 .perfil {
-    font-family: "negro";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    color: black;
+    background-color: var(--card);
     border-radius: 60px;
     width: 90%;
     max-width: 700px;
     padding: 3rem 4rem;
     text-align: center;
-    opacity: 0;
-    animation: aparecer 5s forwards;
+    animation: aparecer 1.5s 1;
+    color: var(--texto);
 }
 
 .perfil img.logo {
@@ -29,33 +36,32 @@
     margin-bottom: 1rem;
 }
 
-.perfil h1 {
-    font-family: "negro", sans-serif;
-    font-size: 1.8rem;
-    font-weight: normal;
-    margin: 1rem 0 0.5rem;
-    color: black;
-}
-
-.perfil p {
-    font-family: "negrito", sans-serif;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    color: var(--gris);
+.saludo {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--texto-sec);
+    margin-bottom: 1.5rem;
 }
 
 .inicial {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background-color: var(--naranja);
+    background-color: var(--morado);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2.2rem;
-    font-family: "negro", sans-serif;
     color: white;
-    margin: 1rem auto;
+    margin: 0 auto 1rem;
+}
+
+.nombre {
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: var(--morado);
+    margin-bottom: 0.5rem;
 }
 
 .rol {
@@ -63,18 +69,27 @@
     padding: 0.3rem 1.2rem;
     border-radius: 25px;
     font-size: 0.85rem;
-    font-family: "negro", sans-serif;
     margin-top: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .rol-admin {
-    background-color: rgba(255, 115, 0, 0.12);
-    color: var(--naranja);
-    border: 1.5px solid rgba(255, 115, 0, 0.3);
+    background-color: rgba(139, 92, 246, 0.15);
+    color: var(--morado);
+    border: 1.5px solid rgba(139, 92, 246, 0.35);
 }
 
 .rol-usuario {
-    background-color: rgba(155, 39, 175, 0.1);
-    color: var(--morado);
-    border: 1.5px solid rgba(155, 39, 175, 0.25);
+    background-color: rgba(156, 163, 175, 0.1);
+    color: var(--texto-sec);
+    border: 1.5px solid rgba(156, 163, 175, 0.25);
+}
+
+.foto-perfil {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    display: block;
 }
