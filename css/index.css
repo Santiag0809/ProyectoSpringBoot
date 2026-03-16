@@ -1,0 +1,58 @@
+.splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    animation: ocultarse 1s forwards;
+    animation-delay: 4s;
+}
+
+.splash img {
+    width: 220px;
+    animation: desaparecer 2s 1;
+    animation-delay: 0s;
+}
+
+.splash p {
+    font-family: "negro", sans-serif;
+    color: white;
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: desaparecer 2s 1;
+    animation-delay: 0.5s;
+}
+
+.barra {
+    width: 220px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+    overflow: hidden;
+    opacity: 0;
+    animation: aparecer 1.5s forwards;
+    animation-delay: 1s;
+}
+
+.barra-relleno {
+    height: 100%;
+    width: 0%;
+    background-color: var(--naranja);
+    border-radius: 99px;
+    animation: llenar 2.5s ease forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes llenar {
+    from { width: 0%; }
+    to   { width: 100%; }
+}

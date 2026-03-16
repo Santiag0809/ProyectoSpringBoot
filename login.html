@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiTrack · Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="imagen">
+        <img src="src/LogiTrack.png" alt="LogiTrack" width="120">
+    </div>
+
+    <div class="login">
+        <img src="src/LogiTrack.png" alt="LogiTrack">
+
+        <p class="titulito">Bienvenido a LogiTrack</p>
+        <p class="subtitulito">Por favor ingresa tus datos para ingresar a la plataforma</p>
+
+        <form>
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="ejemplo@logitrack.com" autocomplete="off">
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" placeholder="••••••••">
+
+            <button class="boton" id="btnLogin" onclick="login()">Ingresar al sistema</button>
+        </form>
+
+        <p class="error" id="error">Credenciales incorrectas. Intenta de nuevo.</p>
+
+        <p class="subtitulito">¿Tienes problemas para ingresar? Contacta al administrador.</p>
+    </div>
+
+    <script>
+        const BASE_URL = 'http://localhost:8080';
+
+        document.getElementById('password').addEventListener('keydown', e => {
+            if (e.key === 'Enter') login();
+        });
+
+        async function login() {
+            const email    = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const error    = document.getElementById('error');
+
+            error.style.display = 'none';
+
+            if (!email || !password) {
+                error.textContent   = 'Por favor completa todos los campos.';
+                error.style.display = 'block';
+                return;
+            }
+
+            try {
+                const res = await fetch(`${BASE_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (!res.ok) throw new Error('Credenciales inválidas');
+
+                const data = await res.json();
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('email', email);
+
+                window.location.href = 'welcome.html';
+
+            } catch (err) {
+                error.textContent   = 'Credenciales incorrectas. Intenta de nuevo.';
+                error.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>

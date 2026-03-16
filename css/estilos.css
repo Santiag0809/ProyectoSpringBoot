@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+body {
+    font-family: "Nunito", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --naranja: #ff7300;
+    --naranja-dark: #e06200;
+    --morado: #9B27AF;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --gris: #555555;
+    --gris-borde: #999999;
+}
+
+body {
+    font-family: "negrito", sans-serif;
+    background-image: url(../src/fondoPrin.png);
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+}
+
+@keyframes desaparecer {
+    0%   { opacity: 0; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes aparecer {
+    0%   { opacity: 0; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes ocultarse {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: -1;
+        position: absolute;
+    }
+}

@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.imagen {
+    text-align: center;
+    align-content: center;
+    margin-top: 40vh;
+    opacity: 0;
+    animation: desaparecer 2s 1;
+    position: relative;
+}
+
+.login {
+    background-color: #1c1c1e;
+    border-radius: 60px;
+    width: 90%;
+    max-width: 700px;
+    padding: 3rem 4rem;
+    text-align: center;
+    animation: aparecer 1.5s 1;
+    color: rgb(110, 0, 133);
+}
+
+.login img {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.titulito {
+    font-family: "negro", sans-serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.subtitulito {
+    font-family: "negrito", sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    color: var(--gris);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+form label {
+    font-size: 0.9rem;
+    margin-left: 0.3rem;
+}
+
+.login input {
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.login input:focus {
+    border-color: var(--naranja);
+}
+
+.boton {
+    background-color: var(--naranja);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: "negro", sans-serif;
+    text-align: center;
+    cursor: pointer;
+    margin: 1rem auto 0;
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: var(--naranja-dark);
+}
+
+.error {
+    color: red;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    display: none;
+}
