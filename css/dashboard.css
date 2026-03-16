@@ -1,0 +1,252 @@
+:root {
+    --fondo: #0f0f13;
+    --card: #1c1c22;
+    --input: #2a2a31;
+    --borde: #3a3a42;
+
+    --texto: #f4f4f5;
+    --texto-sec: #9ca3af;
+
+    --morado: #8b5cf6;
+    --morado-hover: #a78bfa;
+
+    --verde: #22c55e;
+    --rojo: #ef4444;
+    --azul: #3b82f6;
+    --amarillo: #f59e0b;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background-color: var(--card);
+    border-bottom: 1px solid var(--borde);
+}
+
+.nav-izquierda,
+.nav-derecha {
+    display: flex;
+    align-items: center;
+    gap: 3rem;  
+}
+
+.nav-item {
+    font-size: 0.95rem;
+    color: var(--texto-sec);
+    cursor: pointer;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-item:hover {
+    color: var(--texto);
+}
+
+.nav-item.activo {
+    color: var(--morado);
+    border-bottom: 2px solid var(--morado);
+}
+
+.logo-centro img {
+    width: 80px;
+}
+
+.subnav {
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.8rem 3rem;
+    background-color: var(--card);
+    border-bottom: 1px solid var(--borde);
+    flex-wrap: wrap;
+}
+
+.subnav.visible {
+    display: flex;
+}
+
+.accion {
+    font-size: 0.85rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    border: 1px solid var(--borde);
+    color: var(--texto-sec);
+    background-color: var(--input);
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.accion:hover {
+    border-color: var(--morado);
+    color: var(--morado);
+}
+
+.accion.activo {
+    background-color: var(--morado);
+    border-color: var(--morado);
+    color: white;
+}
+
+.contenido {
+    padding: 2rem 3rem;
+}
+
+.titulo-seccion {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--morado);
+    margin-bottom: 0.3rem;
+}
+
+.subtitulo-seccion {
+    font-size: 0.9rem;
+    color: var(--texto-sec);
+    margin-bottom: 2rem;
+}
+
+
+.encabezado,
+.fila {
+    display: grid;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.7rem 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.encabezado {
+    font-size: 0.85rem;
+    color: var(--texto-sec);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--borde);
+    margin-bottom: 0.5rem;
+}
+
+.fila {
+    background-color: var(--card);
+    border: 1px solid var(--borde);
+    border-radius: 2rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+}
+
+.fila:hover {
+    border-color: var(--morado);
+}
+
+.fila p {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.cols-persona   { grid-template-columns: 0.5fr 1.5fr 1.5fr 1fr 1fr 1fr; }
+.cols-producto  { grid-template-columns: 0.5fr 2fr 1.5fr 1fr; }
+.cols-bodega    { grid-template-columns: 0.5fr 1.5fr 2fr 1fr 1.5fr; }
+.cols-movimiento { grid-template-columns: 0.5fr 1.5fr 1.5fr 1.5fr 1.5fr; }
+.cols-detalle   { grid-template-columns: 0.5fr 1.5fr 1.5fr 1fr; }
+.cols-auditoria { grid-template-columns: 0.5fr 1.5fr 1fr 1.5fr 1fr 1fr; }
+
+
+.formulario {
+    background-color: var(--card);
+    border: 1px solid var(--borde);
+    border-radius: 30px;
+    padding: 2rem 3rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formulario label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--morado);
+    margin-bottom: 0.4rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    outline: none;
+    background: var(--input);
+    color: var(--texto);
+    transition: border-color 0.2s;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    border-color: var(--morado);
+}
+
+.formulario select option {
+    background: var(--input);
+}
+
+.boton-form {
+    margin-top: 1.5rem;
+    background-color: var(--morado);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-form:hover {
+    background-color: var(--morado-hover);
+}
+
+
+.vacio {
+    text-align: center;
+    color: var(--texto-sec);
+    padding: 3rem 0;
+    font-size: 0.95rem;
+}
+
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.badge-get    { background: rgba(59,130,246,0.15);  color: var(--azul); }
+.badge-post   { background: rgba(34,197,94,0.15);   color: var(--verde); }
+.badge-put    { background: rgba(245,158,11,0.15);  color: var(--amarillo); }
+.badge-delete { background: rgba(239,68,68,0.15);   color: var(--rojo); }
