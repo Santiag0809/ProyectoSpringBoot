@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
+
     <header>
         <nav class="nav-izquierda">
             <span class="nav-item" onclick="seleccionarEntidad('persona', this)">Personas</span>
             <span class="nav-item" onclick="seleccionarEntidad('producto', this)">Productos</span>
             <span class="nav-item" onclick="seleccionarEntidad('bodega', this)">Bodegas</span>
         </nav>
-
         <div class="logo-centro">
             <img src="src/LogiTrack.png" alt="LogiTrack">
         </div>
-
         <nav class="nav-derecha">
             <span class="nav-item" onclick="seleccionarEntidad('movimiento', this)">Movimientos</span>
             <span class="nav-item" onclick="seleccionarEntidad('detalle', this)">Detalles</span>
             <span class="nav-item" onclick="seleccionarEntidad('auditoria', this)">Auditorías</span>
         </nav>
     </header>
+
     <div class="subnav" id="subnav-persona">
         <span class="accion" onclick="seleccionarAccion('persona', 'listar', this); listarPersonas()">Listar todos</span>
         <span class="accion" onclick="seleccionarAccion('persona', 'buscarId', this)">Buscar por ID</span>
@@ -33,6 +33,7 @@
         <span class="accion" onclick="seleccionarAccion('persona', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('persona', 'eliminar', this)">Eliminar</span>
     </div>
+
     <div class="subnav" id="subnav-producto">
         <span class="accion" onclick="seleccionarAccion('producto', 'listar', this); listarProductos()">Listar todos</span>
         <span class="accion" onclick="seleccionarAccion('producto', 'buscarId', this)">Buscar por ID</span>
@@ -41,6 +42,7 @@
         <span class="accion" onclick="seleccionarAccion('producto', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('producto', 'eliminar', this)">Eliminar</span>
     </div>
+
     <div class="subnav" id="subnav-bodega">
         <span class="accion" onclick="seleccionarAccion('bodega', 'listar', this); listarBodegas()">Listar todas</span>
         <span class="accion" onclick="seleccionarAccion('bodega', 'buscarId', this)">Buscar por ID</span>
@@ -50,6 +52,7 @@
         <span class="accion" onclick="seleccionarAccion('bodega', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('bodega', 'eliminar', this)">Eliminar</span>
     </div>
+
     <div class="subnav" id="subnav-movimiento">
         <span class="accion" onclick="seleccionarAccion('movimiento', 'listar', this); listarMovimientos()">Listar todos</span>
         <span class="accion" onclick="seleccionarAccion('movimiento', 'buscarId', this)">Buscar por ID</span>
@@ -59,6 +62,7 @@
         <span class="accion" onclick="seleccionarAccion('movimiento', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('movimiento', 'eliminar', this)">Eliminar</span>
     </div>
+
     <div class="subnav" id="subnav-detalle">
         <span class="accion" onclick="seleccionarAccion('detalle', 'listar', this); listarDetalles()">Listar todos</span>
         <span class="accion" onclick="seleccionarAccion('detalle', 'buscarId', this)">Buscar por ID</span>
@@ -68,6 +72,7 @@
         <span class="accion" onclick="seleccionarAccion('detalle', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('detalle', 'eliminar', this)">Eliminar</span>
     </div>
+
     <div class="subnav" id="subnav-auditoria">
         <span class="accion" onclick="seleccionarAccion('auditoria', 'listar', this); listarAuditorias()">Listar todas</span>
         <span class="accion" onclick="seleccionarAccion('auditoria', 'buscarId', this)">Buscar por ID</span>
@@ -79,6 +84,7 @@
     </div>
 
     <div class="contenido" id="contenido">
+
         <div id="vista-persona" style="display:none">
             <div id="persona-listar">
                 <p class="titulo-seccion">Personas</p>
@@ -86,9 +92,7 @@
                 <div class="encabezado cols-persona">
                     <p>ID</p><p>Documento</p><p>Nombre</p><p>Apellido</p><p>Edad</p><p>Email</p>
                 </div>
-                <div id="tabla-persona">
-                    <p class="vacio">Selecciona una acción para ver los datos.</p>
-                </div>
+                <div id="tabla-persona"><p class="vacio">Selecciona una acción para ver los datos.</p></div>
             </div>
 
             <div id="persona-crear" style="display:none">
@@ -107,6 +111,8 @@
                     <input type="email" id="p-email" placeholder="juan@logitrack.com">
                     <label>Contraseña</label>
                     <input type="password" id="p-password" placeholder="••••••••">
+                    <label>Rol</label>
+                    <input type="text" id="p-rol" placeholder="TRABAJADOR">
                     <button class="boton-form" onclick="crearPersona()">Guardar persona</button>
                 </div>
             </div>
@@ -129,6 +135,8 @@
                     <input type="email" id="p-upd-email" placeholder="juan@logitrack.com">
                     <label>Contraseña</label>
                     <input type="password" id="p-upd-password" placeholder="••••••••">
+                    <label>Rol</label>
+                    <input type="text" id="p-upd-rol" placeholder="TRABAJADOR">
                     <button class="boton-form" onclick="actualizarPersona()">Actualizar persona</button>
                 </div>
             </div>
@@ -155,9 +163,7 @@
                 <div class="encabezado cols-persona">
                     <p>ID</p><p>Documento</p><p>Nombre</p><p>Apellido</p><p>Edad</p><p>Email</p>
                 </div>
-                <div id="tabla-persona-id">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-persona-id"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="persona-buscarEdad" style="display:none">
@@ -172,24 +178,18 @@
                 <div class="encabezado cols-persona">
                     <p>ID</p><p>Documento</p><p>Nombre</p><p>Apellido</p><p>Edad</p><p>Email</p>
                 </div>
-                <div id="tabla-persona-edad">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-persona-edad"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
-
         </div>
 
         <div id="vista-producto" style="display:none">
-
             <div id="producto-listar">
                 <p class="titulo-seccion">Productos</p>
                 <p class="subtitulo-seccion">Lista completa de productos registrados en el sistema.</p>
                 <div class="encabezado cols-producto">
                     <p>ID</p><p>Nombre</p><p>Categoría</p><p>Precio</p>
                 </div>
-                <div id="tabla-producto">
-                    <p class="vacio">Selecciona una acción para ver los datos.</p>
-                </div>
+                <div id="tabla-producto"><p class="vacio">Selecciona una acción para ver los datos.</p></div>
             </div>
 
             <div id="producto-crear" style="display:none">
@@ -244,9 +244,7 @@
                 <div class="encabezado cols-producto">
                     <p>ID</p><p>Nombre</p><p>Categoría</p><p>Precio</p>
                 </div>
-                <div id="tabla-producto-id">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-producto-id"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="producto-buscarCategoria" style="display:none">
@@ -261,24 +259,18 @@
                 <div class="encabezado cols-producto">
                     <p>ID</p><p>Nombre</p><p>Categoría</p><p>Precio</p>
                 </div>
-                <div id="tabla-producto-categoria">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-producto-categoria"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
-
         </div>
 
         <div id="vista-bodega" style="display:none">
-
             <div id="bodega-listar">
                 <p class="titulo-seccion">Bodegas</p>
                 <p class="subtitulo-seccion">Lista completa de bodegas registradas en el sistema.</p>
                 <div class="encabezado cols-bodega">
                     <p>ID</p><p>Nombre</p><p>Ubicación</p><p>Capacidad</p><p>Encargado</p>
                 </div>
-                <div id="tabla-bodega">
-                    <p class="vacio">Selecciona una acción para ver los datos.</p>
-                </div>
+                <div id="tabla-bodega"><p class="vacio">Selecciona una acción para ver los datos.</p></div>
             </div>
 
             <div id="bodega-crear" style="display:none">
@@ -336,9 +328,7 @@
                 <div class="encabezado cols-bodega">
                     <p>ID</p><p>Nombre</p><p>Ubicación</p><p>Capacidad</p><p>Encargado</p>
                 </div>
-                <div id="tabla-bodega-id">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-bodega-id"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="bodega-buscarNombre" style="display:none">
@@ -352,9 +342,7 @@
                 <div class="encabezado cols-bodega">
                     <p>ID</p><p>Nombre</p><p>Ubicación</p><p>Capacidad</p><p>Encargado</p>
                 </div>
-                <div id="tabla-bodega-nombre">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-bodega-nombre"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="bodega-buscarEncargado" style="display:none">
@@ -368,24 +356,18 @@
                 <div class="encabezado cols-bodega">
                     <p>ID</p><p>Nombre</p><p>Ubicación</p><p>Capacidad</p><p>Encargado</p>
                 </div>
-                <div id="tabla-bodega-encargado">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-bodega-encargado"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
-
         </div>
 
         <div id="vista-movimiento" style="display:none">
-
             <div id="movimiento-listar">
                 <p class="titulo-seccion">Movimientos</p>
                 <p class="subtitulo-seccion">Lista completa de movimientos registrados en el sistema.</p>
                 <div class="encabezado cols-movimiento">
                     <p>ID</p><p>Fecha</p><p>Tipo</p><p>Usuario</p><p>Bodega Origen</p>
                 </div>
-                <div id="tabla-movimiento">
-                    <p class="vacio">Selecciona una acción para ver los datos.</p>
-                </div>
+                <div id="tabla-movimiento"><p class="vacio">Selecciona una acción para ver los datos.</p></div>
             </div>
 
             <div id="movimiento-crear" style="display:none">
@@ -454,9 +436,7 @@
                 <div class="encabezado cols-movimiento">
                     <p>ID</p><p>Fecha</p><p>Tipo</p><p>Usuario</p><p>Bodega Origen</p>
                 </div>
-                <div id="tabla-movimiento-id">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-movimiento-id"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="movimiento-buscarTipo" style="display:none">
@@ -475,9 +455,7 @@
                 <div class="encabezado cols-movimiento">
                     <p>ID</p><p>Fecha</p><p>Tipo</p><p>Usuario</p><p>Bodega Origen</p>
                 </div>
-                <div id="tabla-movimiento-tipo">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-movimiento-tipo"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="movimiento-buscarUsuario" style="display:none">
@@ -491,24 +469,18 @@
                 <div class="encabezado cols-movimiento">
                     <p>ID</p><p>Fecha</p><p>Tipo</p><p>Usuario</p><p>Bodega Origen</p>
                 </div>
-                <div id="tabla-movimiento-usuario">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-movimiento-usuario"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
-
         </div>
 
         <div id="vista-detalle" style="display:none">
-
             <div id="detalle-listar">
                 <p class="titulo-seccion">Movimiento Detalles</p>
                 <p class="subtitulo-seccion">Lista completa de detalles de movimientos.</p>
                 <div class="encabezado cols-detalle">
                     <p>ID</p><p>Movimiento</p><p>Producto</p><p>Cantidad</p>
                 </div>
-                <div id="tabla-detalle">
-                    <p class="vacio">Selecciona una acción para ver los datos.</p>
-                </div>
+                <div id="tabla-detalle"><p class="vacio">Selecciona una acción para ver los datos.</p></div>
             </div>
 
             <div id="detalle-crear" style="display:none">
@@ -559,9 +531,7 @@
                 <div class="encabezado cols-detalle">
                     <p>ID</p><p>Movimiento</p><p>Producto</p><p>Cantidad</p>
                 </div>
-                <div id="tabla-detalle-id">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-detalle-id"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="detalle-buscarMovimiento" style="display:none">
@@ -575,9 +545,7 @@
                 <div class="encabezado cols-detalle">
                     <p>ID</p><p>Movimiento</p><p>Producto</p><p>Cantidad</p>
                 </div>
-                <div id="tabla-detalle-movimiento">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-detalle-movimiento"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="detalle-buscarProducto" style="display:none">
@@ -591,24 +559,18 @@
                 <div class="encabezado cols-detalle">
                     <p>ID</p><p>Movimiento</p><p>Producto</p><p>Cantidad</p>
                 </div>
-                <div id="tabla-detalle-producto">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-detalle-producto"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
-
         </div>
 
         <div id="vista-auditoria" style="display:none">
-
             <div id="auditoria-listar">
                 <p class="titulo-seccion">Auditorías</p>
                 <p class="subtitulo-seccion">Registro completo de operaciones realizadas en el sistema.</p>
                 <div class="encabezado cols-auditoria">
                     <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
-                <div id="tabla-auditoria">
-                    <p class="vacio">Selecciona una acción para ver los datos.</p>
-                </div>
+                <div id="tabla-auditoria"><p class="vacio">Selecciona una acción para ver los datos.</p></div>
             </div>
 
             <div id="auditoria-crear" style="display:none">
@@ -653,9 +615,7 @@
                 <div class="encabezado cols-auditoria">
                     <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
-                <div id="tabla-auditoria-id">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-auditoria-id"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="auditoria-buscarEntidad" style="display:none">
@@ -669,9 +629,7 @@
                 <div class="encabezado cols-auditoria">
                     <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
-                <div id="tabla-auditoria-entidad">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-auditoria-entidad"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="auditoria-buscarOperacion" style="display:none">
@@ -690,9 +648,7 @@
                 <div class="encabezado cols-auditoria">
                     <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
-                <div id="tabla-auditoria-operacion">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-auditoria-operacion"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
 
             <div id="auditoria-buscarUsuario" style="display:none">
@@ -706,16 +662,16 @@
                 <div class="encabezado cols-auditoria">
                     <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
-                <div id="tabla-auditoria-usuario">
-                    <p class="vacio">El resultado aparecerá aquí.</p>
-                </div>
+                <div id="tabla-auditoria-usuario"><p class="vacio">El resultado aparecerá aquí.</p></div>
             </div>
-
         </div>
+
         <div id="vista-inicio">
             <p class="vacio" style="margin-top: 4rem;">Selecciona una entidad del menú para comenzar.</p>
         </div>
+
     </div>
+
+    <script src="scripts/dashboard.js"></script>
 </body>
 </html>
-<script src="scripts/dashboard.js"></script>
