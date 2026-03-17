@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +7,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
-
 <body>
-
-
     <header>
         <nav class="nav-izquierda">
             <span class="nav-item" onclick="seleccionarEntidad('persona', this)">Personas</span>
@@ -29,30 +25,24 @@
             <span class="nav-item" onclick="seleccionarEntidad('auditoria', this)">Auditorías</span>
         </nav>
     </header>
-
-
     <div class="subnav" id="subnav-persona">
-        <span class="accion" onclick="seleccionarAccion('persona', 'listar', this)">Listar todos</span>
+        <span class="accion" onclick="seleccionarAccion('persona', 'listar', this); listarPersonas()">Listar todos</span>
         <span class="accion" onclick="seleccionarAccion('persona', 'buscarId', this)">Buscar por ID</span>
         <span class="accion" onclick="seleccionarAccion('persona', 'buscarEdad', this)">Buscar por edad</span>
         <span class="accion" onclick="seleccionarAccion('persona', 'crear', this)">Crear</span>
         <span class="accion" onclick="seleccionarAccion('persona', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('persona', 'eliminar', this)">Eliminar</span>
     </div>
-
-
     <div class="subnav" id="subnav-producto">
-        <span class="accion" onclick="seleccionarAccion('producto', 'listar', this)">Listar todos</span>
+        <span class="accion" onclick="seleccionarAccion('producto', 'listar', this); listarProductos()">Listar todos</span>
         <span class="accion" onclick="seleccionarAccion('producto', 'buscarId', this)">Buscar por ID</span>
-        <span class="accion" onclick="seleccionarAccion('producto', 'buscarCategoria', this)">Buscar por
-            categoría</span>
+        <span class="accion" onclick="seleccionarAccion('producto', 'buscarCategoria', this)">Buscar por categoría</span>
         <span class="accion" onclick="seleccionarAccion('producto', 'crear', this)">Crear</span>
         <span class="accion" onclick="seleccionarAccion('producto', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('producto', 'eliminar', this)">Eliminar</span>
     </div>
-
     <div class="subnav" id="subnav-bodega">
-        <span class="accion" onclick="seleccionarAccion('bodega', 'listar', this)">Listar todas</span>
+        <span class="accion" onclick="seleccionarAccion('bodega', 'listar', this); listarBodegas()">Listar todas</span>
         <span class="accion" onclick="seleccionarAccion('bodega', 'buscarId', this)">Buscar por ID</span>
         <span class="accion" onclick="seleccionarAccion('bodega', 'buscarNombre', this)">Buscar por nombre</span>
         <span class="accion" onclick="seleccionarAccion('bodega', 'buscarEncargado', this)">Buscar por encargado</span>
@@ -60,9 +50,8 @@
         <span class="accion" onclick="seleccionarAccion('bodega', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('bodega', 'eliminar', this)">Eliminar</span>
     </div>
-
     <div class="subnav" id="subnav-movimiento">
-        <span class="accion" onclick="seleccionarAccion('movimiento', 'listar', this)">Listar todos</span>
+        <span class="accion" onclick="seleccionarAccion('movimiento', 'listar', this); listarMovimientos()">Listar todos</span>
         <span class="accion" onclick="seleccionarAccion('movimiento', 'buscarId', this)">Buscar por ID</span>
         <span class="accion" onclick="seleccionarAccion('movimiento', 'buscarTipo', this)">Buscar por tipo</span>
         <span class="accion" onclick="seleccionarAccion('movimiento', 'buscarUsuario', this)">Buscar por usuario</span>
@@ -70,45 +59,32 @@
         <span class="accion" onclick="seleccionarAccion('movimiento', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('movimiento', 'eliminar', this)">Eliminar</span>
     </div>
-
     <div class="subnav" id="subnav-detalle">
-        <span class="accion" onclick="seleccionarAccion('detalle', 'listar', this)">Listar todos</span>
+        <span class="accion" onclick="seleccionarAccion('detalle', 'listar', this); listarDetalles()">Listar todos</span>
         <span class="accion" onclick="seleccionarAccion('detalle', 'buscarId', this)">Buscar por ID</span>
-        <span class="accion" onclick="seleccionarAccion('detalle', 'buscarMovimiento', this)">Buscar por
-            movimiento</span>
+        <span class="accion" onclick="seleccionarAccion('detalle', 'buscarMovimiento', this)">Buscar por movimiento</span>
         <span class="accion" onclick="seleccionarAccion('detalle', 'buscarProducto', this)">Buscar por producto</span>
         <span class="accion" onclick="seleccionarAccion('detalle', 'crear', this)">Crear</span>
         <span class="accion" onclick="seleccionarAccion('detalle', 'actualizar', this)">Actualizar</span>
         <span class="accion" onclick="seleccionarAccion('detalle', 'eliminar', this)">Eliminar</span>
     </div>
-
     <div class="subnav" id="subnav-auditoria">
-        <span class="accion" onclick="seleccionarAccion('auditoria', 'listar', this)">Listar todas</span>
+        <span class="accion" onclick="seleccionarAccion('auditoria', 'listar', this); listarAuditorias()">Listar todas</span>
         <span class="accion" onclick="seleccionarAccion('auditoria', 'buscarId', this)">Buscar por ID</span>
         <span class="accion" onclick="seleccionarAccion('auditoria', 'buscarEntidad', this)">Buscar por entidad</span>
-        <span class="accion" onclick="seleccionarAccion('auditoria', 'buscarOperacion', this)">Buscar por
-            operación</span>
+        <span class="accion" onclick="seleccionarAccion('auditoria', 'buscarOperacion', this)">Buscar por operación</span>
         <span class="accion" onclick="seleccionarAccion('auditoria', 'buscarUsuario', this)">Buscar por usuario</span>
         <span class="accion" onclick="seleccionarAccion('auditoria', 'crear', this)">Crear</span>
         <span class="accion" onclick="seleccionarAccion('auditoria', 'eliminar', this)">Eliminar</span>
     </div>
 
-
     <div class="contenido" id="contenido">
-
-
         <div id="vista-persona" style="display:none">
-
             <div id="persona-listar">
                 <p class="titulo-seccion">Personas</p>
                 <p class="subtitulo-seccion">Lista completa de personas registradas en el sistema.</p>
                 <div class="encabezado cols-persona">
-                    <p>ID</p>
-                    <p>Documento</p>
-                    <p>Nombre</p>
-                    <p>Apellido</p>
-                    <p>Edad</p>
-                    <p>Email</p>
+                    <p>ID</p><p>Documento</p><p>Nombre</p><p>Apellido</p><p>Edad</p><p>Email</p>
                 </div>
                 <div id="tabla-persona">
                     <p class="vacio">Selecciona una acción para ver los datos.</p>
@@ -131,10 +107,9 @@
                     <input type="email" id="p-email" placeholder="juan@logitrack.com">
                     <label>Contraseña</label>
                     <input type="password" id="p-password" placeholder="••••••••">
-                    <button class="boton-form">Guardar persona</button>
+                    <button class="boton-form" onclick="crearPersona()">Guardar persona</button>
                 </div>
             </div>
-
 
             <div id="persona-actualizar" style="display:none">
                 <p class="titulo-seccion">Actualizar persona</p>
@@ -154,10 +129,9 @@
                     <input type="email" id="p-upd-email" placeholder="juan@logitrack.com">
                     <label>Contraseña</label>
                     <input type="password" id="p-upd-password" placeholder="••••••••">
-                    <button class="boton-form">Actualizar persona</button>
+                    <button class="boton-form" onclick="actualizarPersona()">Actualizar persona</button>
                 </div>
             </div>
-
 
             <div id="persona-eliminar" style="display:none">
                 <p class="titulo-seccion">Eliminar persona</p>
@@ -165,10 +139,9 @@
                 <div class="formulario">
                     <label>ID de la persona</label>
                     <input type="number" id="p-del-id" placeholder="1">
-                    <button class="boton-form" style="background-color:#ef4444">Eliminar persona</button>
+                    <button class="boton-form" style="background-color:#ef4444" onclick="eliminarPersona()">Eliminar persona</button>
                 </div>
             </div>
-
 
             <div id="persona-buscarId" style="display:none">
                 <p class="titulo-seccion">Buscar persona por ID</p>
@@ -176,22 +149,16 @@
                 <div class="formulario">
                     <label>ID de la persona</label>
                     <input type="number" id="p-get-id" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarPersonaPorId()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-persona">
-                    <p>ID</p>
-                    <p>Documento</p>
-                    <p>Nombre</p>
-                    <p>Apellido</p>
-                    <p>Edad</p>
-                    <p>Email</p>
+                    <p>ID</p><p>Documento</p><p>Nombre</p><p>Apellido</p><p>Edad</p><p>Email</p>
                 </div>
                 <div id="tabla-persona-id">
                     <p class="vacio">El resultado aparecerá aquí.</p>
                 </div>
             </div>
-
 
             <div id="persona-buscarEdad" style="display:none">
                 <p class="titulo-seccion">Buscar personas mayores que</p>
@@ -199,16 +166,11 @@
                 <div class="formulario">
                     <label>Edad mínima</label>
                     <input type="number" id="p-get-edad" placeholder="25">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarPersonaPorEdad()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-persona">
-                    <p>ID</p>
-                    <p>Documento</p>
-                    <p>Nombre</p>
-                    <p>Apellido</p>
-                    <p>Edad</p>
-                    <p>Email</p>
+                    <p>ID</p><p>Documento</p><p>Nombre</p><p>Apellido</p><p>Edad</p><p>Email</p>
                 </div>
                 <div id="tabla-persona-edad">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -217,17 +179,13 @@
 
         </div>
 
-
         <div id="vista-producto" style="display:none">
 
             <div id="producto-listar">
                 <p class="titulo-seccion">Productos</p>
                 <p class="subtitulo-seccion">Lista completa de productos registrados en el sistema.</p>
                 <div class="encabezado cols-producto">
-                    <p>ID</p>
-                    <p>Nombre</p>
-                    <p>Categoría</p>
-                    <p>Precio</p>
+                    <p>ID</p><p>Nombre</p><p>Categoría</p><p>Precio</p>
                 </div>
                 <div id="tabla-producto">
                     <p class="vacio">Selecciona una acción para ver los datos.</p>
@@ -244,7 +202,7 @@
                     <input type="text" id="prod-categoria" placeholder="Materiales">
                     <label>Precio</label>
                     <input type="number" id="prod-precio" placeholder="25000">
-                    <button class="boton-form">Guardar producto</button>
+                    <button class="boton-form" onclick="crearProducto()">Guardar producto</button>
                 </div>
             </div>
 
@@ -260,7 +218,7 @@
                     <input type="text" id="prod-upd-categoria" placeholder="Materiales">
                     <label>Precio</label>
                     <input type="number" id="prod-upd-precio" placeholder="25000">
-                    <button class="boton-form">Actualizar producto</button>
+                    <button class="boton-form" onclick="actualizarProducto()">Actualizar producto</button>
                 </div>
             </div>
 
@@ -270,7 +228,7 @@
                 <div class="formulario">
                     <label>ID del producto</label>
                     <input type="number" id="prod-del-id" placeholder="1">
-                    <button class="boton-form" style="background-color:#ef4444">Eliminar producto</button>
+                    <button class="boton-form" style="background-color:#ef4444" onclick="eliminarProducto()">Eliminar producto</button>
                 </div>
             </div>
 
@@ -280,14 +238,11 @@
                 <div class="formulario">
                     <label>ID del producto</label>
                     <input type="number" id="prod-get-id" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarProductoPorId()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-producto">
-                    <p>ID</p>
-                    <p>Nombre</p>
-                    <p>Categoría</p>
-                    <p>Precio</p>
+                    <p>ID</p><p>Nombre</p><p>Categoría</p><p>Precio</p>
                 </div>
                 <div id="tabla-producto-id">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -300,14 +255,11 @@
                 <div class="formulario">
                     <label>Categoría</label>
                     <input type="text" id="prod-get-categoria" placeholder="Materiales">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarProductoPorCategoria()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-producto">
-                    <p>ID</p>
-                    <p>Nombre</p>
-                    <p>Categoría</p>
-                    <p>Precio</p>
+                    <p>ID</p><p>Nombre</p><p>Categoría</p><p>Precio</p>
                 </div>
                 <div id="tabla-producto-categoria">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -316,18 +268,13 @@
 
         </div>
 
-
         <div id="vista-bodega" style="display:none">
 
             <div id="bodega-listar">
                 <p class="titulo-seccion">Bodegas</p>
                 <p class="subtitulo-seccion">Lista completa de bodegas registradas en el sistema.</p>
                 <div class="encabezado cols-bodega">
-                    <p>ID</p>
-                    <p>Nombre</p>
-                    <p>Ubicación</p>
-                    <p>Capacidad</p>
-                    <p>Encargado</p>
+                    <p>ID</p><p>Nombre</p><p>Ubicación</p><p>Capacidad</p><p>Encargado</p>
                 </div>
                 <div id="tabla-bodega">
                     <p class="vacio">Selecciona una acción para ver los datos.</p>
@@ -346,7 +293,7 @@
                     <input type="number" id="bod-capacidad" placeholder="500">
                     <label>ID del encargado</label>
                     <input type="number" id="bod-encargado" placeholder="1">
-                    <button class="boton-form">Guardar bodega</button>
+                    <button class="boton-form" onclick="crearBodega()">Guardar bodega</button>
                 </div>
             </div>
 
@@ -364,7 +311,7 @@
                     <input type="number" id="bod-upd-capacidad" placeholder="500">
                     <label>ID del encargado</label>
                     <input type="number" id="bod-upd-encargado" placeholder="1">
-                    <button class="boton-form">Actualizar bodega</button>
+                    <button class="boton-form" onclick="actualizarBodega()">Actualizar bodega</button>
                 </div>
             </div>
 
@@ -374,7 +321,7 @@
                 <div class="formulario">
                     <label>ID de la bodega</label>
                     <input type="number" id="bod-del-id" placeholder="1">
-                    <button class="boton-form" style="background-color:#ef4444">Eliminar bodega</button>
+                    <button class="boton-form" style="background-color:#ef4444" onclick="eliminarBodega()">Eliminar bodega</button>
                 </div>
             </div>
 
@@ -383,15 +330,11 @@
                 <div class="formulario">
                     <label>ID de la bodega</label>
                     <input type="number" id="bod-get-id" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarBodegaPorId()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-bodega">
-                    <p>ID</p>
-                    <p>Nombre</p>
-                    <p>Ubicación</p>
-                    <p>Capacidad</p>
-                    <p>Encargado</p>
+                    <p>ID</p><p>Nombre</p><p>Ubicación</p><p>Capacidad</p><p>Encargado</p>
                 </div>
                 <div id="tabla-bodega-id">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -403,15 +346,11 @@
                 <div class="formulario">
                     <label>Nombre</label>
                     <input type="text" id="bod-get-nombre" placeholder="Bodega Central">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarBodegaPorNombre()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-bodega">
-                    <p>ID</p>
-                    <p>Nombre</p>
-                    <p>Ubicación</p>
-                    <p>Capacidad</p>
-                    <p>Encargado</p>
+                    <p>ID</p><p>Nombre</p><p>Ubicación</p><p>Capacidad</p><p>Encargado</p>
                 </div>
                 <div id="tabla-bodega-nombre">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -423,15 +362,11 @@
                 <div class="formulario">
                     <label>ID del encargado</label>
                     <input type="number" id="bod-get-encargado" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarBodegaPorEncargado()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-bodega">
-                    <p>ID</p>
-                    <p>Nombre</p>
-                    <p>Ubicación</p>
-                    <p>Capacidad</p>
-                    <p>Encargado</p>
+                    <p>ID</p><p>Nombre</p><p>Ubicación</p><p>Capacidad</p><p>Encargado</p>
                 </div>
                 <div id="tabla-bodega-encargado">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -440,18 +375,13 @@
 
         </div>
 
-
         <div id="vista-movimiento" style="display:none">
 
             <div id="movimiento-listar">
                 <p class="titulo-seccion">Movimientos</p>
                 <p class="subtitulo-seccion">Lista completa de movimientos registrados en el sistema.</p>
                 <div class="encabezado cols-movimiento">
-                    <p>ID</p>
-                    <p>Fecha</p>
-                    <p>Tipo</p>
-                    <p>Usuario</p>
-                    <p>Bodega Origen</p>
+                    <p>ID</p><p>Fecha</p><p>Tipo</p><p>Usuario</p><p>Bodega Origen</p>
                 </div>
                 <div id="tabla-movimiento">
                     <p class="vacio">Selecciona una acción para ver los datos.</p>
@@ -476,7 +406,7 @@
                     <input type="number" id="mov-origen" placeholder="1">
                     <label>ID bodega destino (opcional)</label>
                     <input type="number" id="mov-destino" placeholder="2">
-                    <button class="boton-form">Guardar movimiento</button>
+                    <button class="boton-form" onclick="crearMovimiento()">Guardar movimiento</button>
                 </div>
             </div>
 
@@ -500,7 +430,7 @@
                     <input type="number" id="mov-upd-origen" placeholder="1">
                     <label>ID bodega destino (opcional)</label>
                     <input type="number" id="mov-upd-destino" placeholder="2">
-                    <button class="boton-form">Actualizar movimiento</button>
+                    <button class="boton-form" onclick="actualizarMovimiento()">Actualizar movimiento</button>
                 </div>
             </div>
 
@@ -509,7 +439,7 @@
                 <div class="formulario">
                     <label>ID del movimiento</label>
                     <input type="number" id="mov-del-id" placeholder="1">
-                    <button class="boton-form" style="background-color:#ef4444">Eliminar movimiento</button>
+                    <button class="boton-form" style="background-color:#ef4444" onclick="eliminarMovimiento()">Eliminar movimiento</button>
                 </div>
             </div>
 
@@ -518,15 +448,11 @@
                 <div class="formulario">
                     <label>ID del movimiento</label>
                     <input type="number" id="mov-get-id" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarMovimientoPorId()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-movimiento">
-                    <p>ID</p>
-                    <p>Fecha</p>
-                    <p>Tipo</p>
-                    <p>Usuario</p>
-                    <p>Bodega Origen</p>
+                    <p>ID</p><p>Fecha</p><p>Tipo</p><p>Usuario</p><p>Bodega Origen</p>
                 </div>
                 <div id="tabla-movimiento-id">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -543,15 +469,11 @@
                         <option value="SALIDA">SALIDA</option>
                         <option value="TRANSFERENCIA">TRANSFERENCIA</option>
                     </select>
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarMovimientoPorTipo()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-movimiento">
-                    <p>ID</p>
-                    <p>Fecha</p>
-                    <p>Tipo</p>
-                    <p>Usuario</p>
-                    <p>Bodega Origen</p>
+                    <p>ID</p><p>Fecha</p><p>Tipo</p><p>Usuario</p><p>Bodega Origen</p>
                 </div>
                 <div id="tabla-movimiento-tipo">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -563,15 +485,11 @@
                 <div class="formulario">
                     <label>ID del usuario</label>
                     <input type="number" id="mov-get-usuario" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarMovimientoPorUsuario()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-movimiento">
-                    <p>ID</p>
-                    <p>Fecha</p>
-                    <p>Tipo</p>
-                    <p>Usuario</p>
-                    <p>Bodega Origen</p>
+                    <p>ID</p><p>Fecha</p><p>Tipo</p><p>Usuario</p><p>Bodega Origen</p>
                 </div>
                 <div id="tabla-movimiento-usuario">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -580,17 +498,13 @@
 
         </div>
 
-
         <div id="vista-detalle" style="display:none">
 
             <div id="detalle-listar">
                 <p class="titulo-seccion">Movimiento Detalles</p>
                 <p class="subtitulo-seccion">Lista completa de detalles de movimientos.</p>
                 <div class="encabezado cols-detalle">
-                    <p>ID</p>
-                    <p>Movimiento</p>
-                    <p>Producto</p>
-                    <p>Cantidad</p>
+                    <p>ID</p><p>Movimiento</p><p>Producto</p><p>Cantidad</p>
                 </div>
                 <div id="tabla-detalle">
                     <p class="vacio">Selecciona una acción para ver los datos.</p>
@@ -606,7 +520,7 @@
                     <input type="number" id="det-producto" placeholder="1">
                     <label>Cantidad</label>
                     <input type="number" id="det-cantidad" placeholder="10">
-                    <button class="boton-form">Guardar detalle</button>
+                    <button class="boton-form" onclick="crearDetalle()">Guardar detalle</button>
                 </div>
             </div>
 
@@ -621,7 +535,7 @@
                     <input type="number" id="det-upd-producto" placeholder="1">
                     <label>Cantidad</label>
                     <input type="number" id="det-upd-cantidad" placeholder="10">
-                    <button class="boton-form">Actualizar detalle</button>
+                    <button class="boton-form" onclick="actualizarDetalle()">Actualizar detalle</button>
                 </div>
             </div>
 
@@ -630,7 +544,7 @@
                 <div class="formulario">
                     <label>ID del detalle</label>
                     <input type="number" id="det-del-id" placeholder="1">
-                    <button class="boton-form" style="background-color:#ef4444">Eliminar detalle</button>
+                    <button class="boton-form" style="background-color:#ef4444" onclick="eliminarDetalle()">Eliminar detalle</button>
                 </div>
             </div>
 
@@ -639,14 +553,11 @@
                 <div class="formulario">
                     <label>ID del detalle</label>
                     <input type="number" id="det-get-id" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarDetallePorId()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-detalle">
-                    <p>ID</p>
-                    <p>Movimiento</p>
-                    <p>Producto</p>
-                    <p>Cantidad</p>
+                    <p>ID</p><p>Movimiento</p><p>Producto</p><p>Cantidad</p>
                 </div>
                 <div id="tabla-detalle-id">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -658,14 +569,11 @@
                 <div class="formulario">
                     <label>ID del movimiento</label>
                     <input type="number" id="det-get-movimiento" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarDetallePorMovimiento()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-detalle">
-                    <p>ID</p>
-                    <p>Movimiento</p>
-                    <p>Producto</p>
-                    <p>Cantidad</p>
+                    <p>ID</p><p>Movimiento</p><p>Producto</p><p>Cantidad</p>
                 </div>
                 <div id="tabla-detalle-movimiento">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -677,14 +585,11 @@
                 <div class="formulario">
                     <label>ID del producto</label>
                     <input type="number" id="det-get-producto" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarDetallePorProducto()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-detalle">
-                    <p>ID</p>
-                    <p>Movimiento</p>
-                    <p>Producto</p>
-                    <p>Cantidad</p>
+                    <p>ID</p><p>Movimiento</p><p>Producto</p><p>Cantidad</p>
                 </div>
                 <div id="tabla-detalle-producto">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -693,19 +598,13 @@
 
         </div>
 
-
         <div id="vista-auditoria" style="display:none">
 
             <div id="auditoria-listar">
                 <p class="titulo-seccion">Auditorías</p>
                 <p class="subtitulo-seccion">Registro completo de operaciones realizadas en el sistema.</p>
                 <div class="encabezado cols-auditoria">
-                    <p>ID</p>
-                    <p>Entidad</p>
-                    <p>Operación</p>
-                    <p>Usuario</p>
-                    <p>Valor Anterior</p>
-                    <p>Valor Nuevo</p>
+                    <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
                 <div id="tabla-auditoria">
                     <p class="vacio">Selecciona una acción para ver los datos.</p>
@@ -730,7 +629,7 @@
                     <input type="text" id="aud-anterior" placeholder="nombre: cemento">
                     <label>Valor nuevo (opcional)</label>
                     <input type="text" id="aud-nuevo" placeholder="nombre: cemento gris">
-                    <button class="boton-form">Guardar auditoría</button>
+                    <button class="boton-form" onclick="crearAuditoria()">Guardar auditoría</button>
                 </div>
             </div>
 
@@ -739,7 +638,7 @@
                 <div class="formulario">
                     <label>ID de la auditoría</label>
                     <input type="number" id="aud-del-id" placeholder="1">
-                    <button class="boton-form" style="background-color:#ef4444">Eliminar auditoría</button>
+                    <button class="boton-form" style="background-color:#ef4444" onclick="eliminarAuditoria()">Eliminar auditoría</button>
                 </div>
             </div>
 
@@ -748,16 +647,11 @@
                 <div class="formulario">
                     <label>ID de la auditoría</label>
                     <input type="number" id="aud-get-id" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarAuditoriaPorId()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-auditoria">
-                    <p>ID</p>
-                    <p>Entidad</p>
-                    <p>Operación</p>
-                    <p>Usuario</p>
-                    <p>Valor Anterior</p>
-                    <p>Valor Nuevo</p>
+                    <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
                 <div id="tabla-auditoria-id">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -769,16 +663,11 @@
                 <div class="formulario">
                     <label>Nombre de la entidad</label>
                     <input type="text" id="aud-get-entidad" placeholder="productos">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarAuditoriaPorEntidad()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-auditoria">
-                    <p>ID</p>
-                    <p>Entidad</p>
-                    <p>Operación</p>
-                    <p>Usuario</p>
-                    <p>Valor Anterior</p>
-                    <p>Valor Nuevo</p>
+                    <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
                 <div id="tabla-auditoria-entidad">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -795,16 +684,11 @@
                         <option value="UPDATE">UPDATE</option>
                         <option value="DELETE">DELETE</option>
                     </select>
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarAuditoriaPorOperacion()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-auditoria">
-                    <p>ID</p>
-                    <p>Entidad</p>
-                    <p>Operación</p>
-                    <p>Usuario</p>
-                    <p>Valor Anterior</p>
-                    <p>Valor Nuevo</p>
+                    <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
                 <div id="tabla-auditoria-operacion">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -816,16 +700,11 @@
                 <div class="formulario">
                     <label>ID del usuario</label>
                     <input type="number" id="aud-get-usuario" placeholder="1">
-                    <button class="boton-form">Buscar</button>
+                    <button class="boton-form" onclick="buscarAuditoriaPorUsuario()">Buscar</button>
                 </div>
                 <br>
                 <div class="encabezado cols-auditoria">
-                    <p>ID</p>
-                    <p>Entidad</p>
-                    <p>Operación</p>
-                    <p>Usuario</p>
-                    <p>Valor Anterior</p>
-                    <p>Valor Nuevo</p>
+                    <p>ID</p><p>Entidad</p><p>Operación</p><p>Usuario</p><p>Valor Anterior</p><p>Valor Nuevo</p>
                 </div>
                 <div id="tabla-auditoria-usuario">
                     <p class="vacio">El resultado aparecerá aquí.</p>
@@ -836,9 +715,7 @@
         <div id="vista-inicio">
             <p class="vacio" style="margin-top: 4rem;">Selecciona una entidad del menú para comenzar.</p>
         </div>
-
     </div>
-
 </body>
-
 </html>
+<script src="scripts/dashboard.js"></script>
