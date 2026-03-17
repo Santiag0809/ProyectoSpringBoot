@@ -83,4 +83,7 @@ CREATE TABLE auditorias (
         REFERENCES persona(id)
         ON DELETE CASCADE
 );
+
+INSERT INTO persona (nombre, apellido, edad, documento, email, password, rol)
+VALUES ('Admin', 'LogiTrack', 25, '1000000001', 'admin@logitrack.com', '123456', 'ADMIN');
  
